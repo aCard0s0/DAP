@@ -1,0 +1,22 @@
+body
+{
+    background-image: url("../Images/droneBackground.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.transbox
+{
+    margin: 3%;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 8px;
+}
+
+.titulo
+{
+    color: white;
+    margin-left: 5%;
+    font-size: 200%;
+}

@@ -1,0 +1,38 @@
+﻿<div class="loginpage">
+    <div class="container">
+        <div class="page-header" id="features">
+            <h2>Área reservada</h2>
+        </div>
+   
+      
+        <div class="row">
+            <div class="col-sm-8">
+                <img src="images/drone.jpg" class="img-responsive" />
+            </div>
+            <div class="col-sm-4" style="margin-top:15%;">
+				<form role="form" ng-submit="processForm()">
+                <label class="logLabels login">Utilizador </label>
+                <input type="text" class="form-control login" ng-model="formData.user" id="user" required />
+
+                <br>
+
+                <label class="logLabels login" for="pwd">Senha </label>
+                <input type="password" class="form-control login" ng-model="formData.password" id="pwd" required />
+
+                <br>
+
+                <div id="checkbox">
+                
+
+                
+					<input type="submit" class="btn btn-info btn-lg login" value="Entrar" />
+                </div>
+				<div ng-bind-html="status"></div>
+				</form>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,44 @@
+﻿
+<div class="adminDronePage">
+
+    <div>
+        <form role="form" ng-submit="processForm()">
+            <section>
+                <div class="row">
+                    <div class="page-header" id="features">
+                        <h2>Enviar drone para recolher imagens</h2>
+                    </div>
+
+                    <div class="col-md-4">
+                        <select ng-options="drone as drone.name for drone in  drones" ng-model="formData.drone" class="form-control">
+                            <option style="display:none" value="">Seleccionar Drone</option>
+                        </select>
+
+                        <select ng-options="park as park.name for park in  parks" ng-model="formData.park" class="form-control">
+                            <option style="display:none" value="">Seleccionar Parque</option>
+                        </select>
+
+
+
+                        <input type="submit" class="btn btn-info btn-lg" value="Enviar drone" />
+                    </div>
+                    <div class="col-md-8">
+                        <ul  class="logger list-unstyled">
+                            <li ng-repeat="loggy in logger">
+                               {{loggy.time | date:'dd-MM-yyyy HH:mm' }} | {{ loggy.state }} | Drone: {{ loggy.droneidDrone.name }} | Park {{ loggy.parkidPark.name }}
+                                
+                            </li>
+                        </ul>
+                       
+                    </div>
+                </div>
+            </section>
+
+            <div ng-bind-html="status"></div>
+
+
+        </form>
+    </div>
+
+</div>
+

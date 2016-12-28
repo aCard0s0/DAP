@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+
+
+<head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVkv1G3w_AGMPbpKn0EXZdot2MKTjL98g"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-inverse" id="my-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="#home" class="navbar-brand">Drone Parking</a>
+            </div><!--Header-->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html#home">Home</a>
+                    <li><a href="index.html#parks">Parks</a>
+                    <li><a href="index.html#statistics">Statistics</a>
+                    <li><a href="index.html#about">About</a>
+                </ul>
+                <!-- Login Admin -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html#login"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <nav>
+                    <ul class="nav nav-stacked bo-menu" id="sidebar">
+                        <li><a href="#admin">Operações do Drone</a></li>
+                        <li><a href="#admin_parks">Gestão de Parques</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-8"><div ng-view></div></div>
+        </div>
+    
+
+
+    </div>
+
+    <!-- FOOTER-->
+    <footer class="footer">
+        <div class="container text-center">
+            <ul class="list-inline">
+                <li><a href="https://www.ua.pt/">Universidade de Aveiro</a></li>
+            </ul>
+            <p>&copy; Copyright @ 2016</p>
+        </div><!-- end Container-->
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+    <script src="js/controllers.js"></script>
+</body>
+</html>

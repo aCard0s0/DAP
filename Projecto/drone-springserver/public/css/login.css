@@ -1,0 +1,28 @@
+body
+{
+    background-image: url("../Images/droneBackground.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+#buttonLog
+{
+    line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    float: right;
+    margin-left: 5px;
+}
+
+#lembrar
+{
+    color: white;
+}
+
+.logLabels
+{
+    color: white;
+}

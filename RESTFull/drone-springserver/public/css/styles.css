@@ -1,0 +1,138 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+body {
+    font-family: 'Open Sans',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+    body.homepage {
+        background-image: url("../Images/droneBackground.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+
+.navbar-nav > li a {
+    color: #FFF;
+}
+
+/*parkpage*/
+.parkpage .park {
+    text-align: left;
+    font-size: 12px;
+}
+
+.parkpage .panel-body {
+    height: 160px;
+    overflow: hidden;
+}
+
+.parkpage a {
+    color: #000000;
+}
+
+.parkpage .park .progress {
+    margin-top: 10px;
+    height: 10px;
+}
+
+.parkpage div.panel-body:hover {
+    background-color: #CCC;
+}
+/*SpecificParkPage*/
+.SpecificParkPage .progress {
+    margin-top: 10px;
+    height: 10px;
+}
+
+.SpecificParkPage .carousel-inner img {
+    max-height: 100px;
+}
+
+#owl-demo .item {
+    margin: 3px;
+}
+
+    #owl-demo .item img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+.bo-menu {
+    
+    margin-top:20px;
+}
+.bo-menu li{
+    background-color:#EEE;
+    width:200px;
+    border-bottom:1px solid #000000;
+}
+
+.bo-menu li a{
+   color:#000;
+}
+.bo-menu li a:hover{
+   color:#0026ff;
+}
+/*adminDronePage*/
+.adminDronePage input {
+    margin:20px 0;
+}
+.adminDronePage select {
+    margin:20px 0;
+}
+/*StatisticsPage*/
+.StatisticsPage .checkbox {
+    margin-left: 20px;
+}
+.StatisticsPage  .page-header {
+    padding-left:15px;
+}
+.StatisticsPage #data2 {
+    display: none;
+    margin-left: 20px;
+}
+
+.StatisticsPage thead {
+    background-color: #CCC;
+}
+
+.StatisticsPage tr:nth-child(even) {
+    background: #eee;
+}
+
+.StatisticsPage .nav-tabs {
+    border: none;
+    padding-left: 15px;
+    padding-top: 2px;
+}
+.StatisticsPage .dropdown {
+     padding-right: 15px;
+}
+
+.StatisticsPage .dropdown select {
+    border: 1px solid #000;
+    border-radius: 0;
+    height: 40px;
+  
+}
+
+.StatisticsPage  input[type=date]{
+    border: 1px solid #000;
+    border-radius: 0;
+    height: 40px;
+ 
+}
+.adminDronePage ul.logger {
+    padding-top:20px;
+}

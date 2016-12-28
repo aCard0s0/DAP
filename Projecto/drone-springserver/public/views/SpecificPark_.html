@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- Uso do css do background e do footer -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+
+  
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/owl-carousel/owl.carousel.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#owl-demo").owlCarousel({
+
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                items: 4,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3]
+
+            });
+        });
+    </script>
+    
+ 
+</head>
+
+
+
+<body class="SpecificParkPage">
+    <nav class="navbar navbar-inverse" id="my-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="Home.html" class="navbar-brand">Drone Parking</a>
+            </div><!--Header-->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="Home.html">Home</a>
+                    <li><a href="Parks.html">Parks</a>
+                    <li><a href="Statistics.html">Statistics</a>
+                    <li><a href="About.html">About</a>
+                </ul>
+                <!-- Login Admin -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Panel-->
+    <div class="container">
+        <section>
+            <div class="page-header" id="specificPark">
+                <h2>Parque: Biblioteca</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="Images/Parque_Biblioteca (P5).png" class="img-responsive" alt="ParkingLot">
+                </div>
+                <div class="col-md-8">
+                    <!-- CONSUMIR DO WEBSERVICE -->
+
+                 
+                    <div>Tipo de parque: <strong>Pago</strong></div>
+                    <div><strong>Resultados da leitura efetuada às 17h35</strong></div>
+                    <div>Lugares livres: <strong>200</strong></div>
+                    <div>Lugares ocupados: <strong>30</strong></div>
+
+                    <div class="progress">
+                        <!--Valores das width terão de ser consumidas em percentagem da info recebida do webservice-->
+                        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:30%">
+                        </div>
+                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width:70%">
+                        </div>
+                    </div>
+                    <div>
+                        <div id="curve_chart" style="width: 100%; height: 300px"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+    <div class="container">
+    
+        <img src="Images/parque-google.png" class="img-responsive" />
+    </div>
+    <!-- Gallery -->
+    <div class="container">
+        <section>
+            <div class="page-header" id="gallery">
+                <h2>Galeria da última captura</h2>
+            </div>
+
+            <div id="owl-demo">
+
+                <div class="item"><img src="images/frame00.jpg" alt="Owl Image"></div>
+                <div class="item"><img src="images/frame01.jpg" alt="Owl Image"></div>
+                <div class="item"><img src="images/frame02.jpg" alt="Owl Image"></div>
+                <div class="item"><img src="images/frame03.jpg" alt="Owl Image"></div>
+                <div class="item"><img src="images/frame04.jpg" alt="Owl Image"></div>
+                <div class="item"><img src="images/frame05.jpg" alt="Owl Image"></div>
+                <div class="item"><img src="images/frame06.jpg" alt="Owl Image"></div>
+                <div class="item"><img src="images/frame07.jpg" alt="Owl Image"></div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER-->
+    <footer class="footer">
+        <div class="container text-center">
+            <ul class="list-inline">
+                <li><a href="https://www.ua.pt/">Universidade de Aveiro</a></li>
+            </ul>
+            <p>&copy; Copyright @ 2016</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>

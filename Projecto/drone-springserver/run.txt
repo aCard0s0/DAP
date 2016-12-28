@@ -1,0 +1,1 @@
+java -jar drone-springserver-1.0-SNAPSHOT.jar  --static.path=public/

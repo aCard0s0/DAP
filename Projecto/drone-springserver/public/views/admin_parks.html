@@ -1,0 +1,35 @@
+﻿
+<div class="adminDronePage">
+    <div>
+        <section>
+            <div class="row">
+                <div class="page-header" id="features">
+                    <h2>Gestão de Parques</h2>
+                </div>
+
+                <p>
+                    <a href="#admin_create_park"><button id="buttonLog" type="button" class="btn btn-info btn-md login">Criar novo parque</button></a>
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="park in parks">
+                            <th scope="row">{{ park.idPark}}</th>
+                            <td><a href="#admin_parks_detail/{{ park.idPark}}">{{ park.name}}</a></td>
+                            <td>{{ park.type}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+</div>
+

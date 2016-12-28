@@ -1,0 +1,9 @@
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/calibration/CMakeFiles/calib.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/calibRoad.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/cars.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/cars2.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/getFrames.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/optflow.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/roads.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/roadsLib.dir
+/home/andrecajus/Desktop/ProjectImgAlgorithm/bin/visualization/CMakeFiles/viewer.dir

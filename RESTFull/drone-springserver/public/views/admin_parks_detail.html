@@ -1,0 +1,198 @@
+﻿
+<div class="adminDronePage">
+    <div>
+        <form role="form" ng-submit="processForm()">
+            <section>
+                <div class="row">
+                    <div class="page-header" id="features">
+                        <h2>Edição de Parque</h2>
+                    </div>
+                    <!--<div class="form-group">
+                        <label for="activo">Activo</label>
+                        <input type="checkbox" id="activo" ng-model="formData.active"  />
+                    </div>-->
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name" ng-model="formData.name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Tipo">Tipo</label>
+                        <select ng-model="formData.type" class="form-control" id="type">
+                            <option value="Publico">Publico</option>
+                            <option value="Pago">Pago</option>
+                            <option value="Privado">Privado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="lugares">Nº Lugares</label>
+                        <input type="text" class="form-control" id="lugares" ng-model="formData.nlots" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="imagem">Imagem planta</label>
+                        <input type="text" class="form-control" id="imagem" ng-model="formData.parkImg" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="latitude">Latitude</label>
+                        <input type="text" class="form-control" id="latitude" ng-model="formData.centraLatitude" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude">Longitude</label>
+                        <input type="text" class="form-control" id="longitude" ng-model="formData.centraLongitude" required />
+                    </div>
+                    <div>
+                        <div id="map_canvas" style="height:300px"></div>
+
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <input id="reset" value="Limpar" type="button" class="btn btn-warning" />
+                            <input id="showData" value="Gravar mapeamento do terreno" type="button" class="btn btn-primary" />
+                            <div id="mapstatus"></div>
+                        </div>
+                    </div>
+                    <p>
+                        <input type="hidden" class="form-control" id="active" ng-model="formData.active" />
+                        <input type="submit" class="btn btn-info btn-lg" value="Gravar" />
+                    </p>
+                </div>
+
+
+
+                {{formData}}
+                <div ng-bind-html="status"></div>
+            </section>
+        </form>
+    </div>
+
+</div>
+<script type="text/javascript" src="/js/polygon.min.js"></script>
+
+<script type="text/javascript">
+    var creator;
+    var map;
+    initialize();
+
+    function resetmap() {
+        var lat = 40.631158;
+        var long = -8.658749;
+        var center = new google.maps.LatLng(lat, long);
+        var myOptions = {
+            zoom: 15,
+            center: center,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+    }
+
+    function initialize() {
+
+        var url = window.location.href;
+        var id = url.substring(url.lastIndexOf('/') + 1);
+        var turl = "/api/gpscoor/park/" + id;
+
+
+        var lat = 40.631158;
+        var long = -8.658749;
+        var center = new google.maps.LatLng(lat, long);
+        var myOptions = {
+            zoom: 15,
+            center: center,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+        creator = new PolygonCreator(map);
+
+        var polygonCoords = [];
+
+
+
+        $.ajax({
+            url: turl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                data = result;
+                //console.log("data:" + data);
+                data.sort(function (a, b) {
+                    var x = a.index, y = b.index;
+                    return x < y ? -1 : x > y ? 1 : 0;
+                });
+
+                $.each(data, function (index, value) {
+
+                    polygonCoords.push(new google.maps.LatLng(value.latitude, value.longitude));
+
+                })
+
+                var parkSpot = new google.maps.Polygon({
+                    paths: polygonCoords,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "#FF0000",
+                    fillOpacity: 0.35
+                });
+
+                // show polygon on the map
+                parkSpot.setMap(map);
+            }
+        })
+
+    }
+    $('#showData').click(function () {
+        var url = window.location.href;
+        var id = url.substring(url.lastIndexOf('/') + 1);
+        var turl = "/api/gpscoor/park/" + id;
+
+        if (null == creator.showData()) {
+            alert('por favor preencha o poligno');
+        } else {
+            $.ajax({
+                url: turl,
+                type: 'DELETE',
+                success: function (result) {
+                    alert("apagar coords atuais");
+                    $.each(creator.showData(), function (index, value) {
+
+                        $.ajax({
+                            url: turl,
+                            type: 'POST',
+                            data:  JSON.stringify({ latitude: value.x, longitude: value.y, index: index }),
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                console.log(result);
+                            }
+                        });
+
+                        //    $.post(turl, { latitude: value.x, longitude: value.y, index: index }, function (result) {
+                        //        console.log(result);
+                        //    });
+                    });
+                }
+            });
+
+            $("#mapstatus").html("Localização gravada com sucesso!");
+            //$('#dataPanel').append(creator.showData());
+        }
+    });
+    $('#reset').click(function () {
+        console.log("limpar");
+        resetmap();
+        creator.destroy();
+        creator = null;
+
+        creator = new PolygonCreator(map);
+
+
+    });
+</script>
+
+
+
+
+
+
+
+

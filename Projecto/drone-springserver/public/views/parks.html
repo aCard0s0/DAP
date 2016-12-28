@@ -1,0 +1,48 @@
+﻿<div class="parkpage">
+
+    <!--Parques -->
+    <div class="container">
+        <section>
+            <div class="page-header" id="features">
+                <h2>Listagem de parques</h2>
+            </div>
+      
+            <div class="row">
+                <div class="col-sm-6" ng-repeat="park in parks">
+                    <div class="panel panel-default text-center">
+                        <a href="#park/{{ park.idPark}}">
+                            <div class="panel-body">
+                                <div class="col-sm-6">
+                              
+                                    <img ng-src="/images/{{ park.parkImg}}" class="img-responsive" alt="ParkingLot">
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="park">
+                                        <h4>Parque: {{ park.name}}</h4>
+                                        <div>Tipo de parque: {{ park.type}}</div>
+                                        <div>Lugares livres: <strong>{{ park.nlots - park.lastCapture.noccupiedLots}}</strong></div>
+                                        <div>Lugares ocupados: <strong>{{ park.lastCapture.noccupiedLots}}</strong></div>
+                                        <div class="progress">
+
+                                            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:{{(park.lastCapture.noccupiedLots /park.nlots)*100 }}%">
+                                            </div>
+                                            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width:{{(park.nlots - park.lastCapture.noccupiedLots /park.nlots)*100 }}%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+    </div>
+
+</div>
