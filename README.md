@@ -1,5 +1,5 @@
-# DAP
-Drone Assisted Parking
+# Final Course Project - Drone Assisted Parking - DAP
+
 
 Project developed at the Universidade de Aveiro, Portugal. 
 In order to monitor the free parking parks at the university. 
